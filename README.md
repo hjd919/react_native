@@ -1,2 +1,2 @@
 # react_native
-app
+react-native init react_native 初始化工程
