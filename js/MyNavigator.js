@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 // 页面
-import Layout from './view/layout2';
+import ReduxTest from './view/ReduxTest';
 
 export default class react_native extends Component {
   render() {
@@ -16,7 +16,7 @@ export default class react_native extends Component {
         style={styles.container}
         initialRoute={{
           title:'首页',
-          component:Layout,
+          component:ReduxTest,
         }}
       />
     );

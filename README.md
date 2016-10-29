@@ -5,3 +5,12 @@
     - MyApp
     - MyNavigator
     - view
+* redux
+    - actions
+    - reducers
+    - store
+        - 简单创建
+        - 中间件：日志，持久化，网络异步！
+* code-push
+* 开发环境和生产环境、安装手机
+* app初始化事情-setup.js

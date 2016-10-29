@@ -9,4 +9,4 @@ import {
 } from 'react-native';
 import react_native from './js/setup';
 
-AppRegistry.registerComponent('react_native', () => react_native);
+AppRegistry.registerComponent('react_native', react_native);
