@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
   View,
-  Image
+  NavigatorIOS,
+  StyleSheet
 } from 'react-native';
+//导航
+import MyNavigator from './MyNavigator';
 
 export default class react_native extends Component {
   render() {
     return (
-      <View>
-        
+      <View style={styles.container}>
+        <MyNavigator/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  row:{
-    flexDirection:'row',
-    marginTop:30,
+  container: {
+    flex: 1,
   },
 });
