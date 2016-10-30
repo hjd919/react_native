@@ -1,7 +1,5 @@
-'use strict';
-
 import configActions from './config';
 
-export default {
+module.exports = {
 	...configActions,
 };

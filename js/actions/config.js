@@ -1,13 +1,31 @@
-'use strict';
 
-function loadConfig(){
-	const config = {
-			'apiURL' : 'http://baidu.com2'
+async function loadConfig(){
+	try{
+		const response = await fetch('http://monitor.adyouzi.cn/config/app_launch');
+		const data = await response.json();
+		const config = data.data;	
+		const action = {
+		  type:'LOADED_CONFIG',
+		  config,
 		};
-	return {
-		type: 'LOADED_CONFIG',
-		config,
-	};
+		return action;
+		// return action;
+	} catch (error){
+		throw new Error('出错了'+error);
+	}
+	// return Promise.resolve(action);
 }
 
-export {loadConfig};
+// function loadConfig(){
+// 	return (dispatch) => {
+// 		const config = _loadConfig()
+
+// 		config.then((result)=>{
+// 			dispatch(result);
+// 		});
+
+// 		return config;		
+// 	};
+// }
+
+export default {loadConfig};

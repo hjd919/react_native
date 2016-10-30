@@ -7,29 +7,39 @@ import MyApp from './MyApp';//应用
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 
-function setup(){
+export default function setup(){
 
 	class react_native extends Component {
 
 		constructor() {
 		  super();
-		
 		  this.state = {
-		  	store:configureStore(),
+        	isLoading: true,
+		  	store:configureStore(()=>this.setState({isLoading:false})),
 		  };
 		}
 
 	    render() {
-	      return (
-	      	<Provider store={this.state.store}>
-	        	<MyApp/>	
-	        </Provider>
-	      );
+	    	// 等待加载永久数据
+	    	if(this.state.isLoading){
+	    		console.log('loading app');
+	    		return null;
+	    	}
+	        return (
+	        	<Provider store={this.state.store}>
+	          	<MyApp/>	
+	          </Provider>
+	        );
 	    }
 	}
 
 	return react_native;
 }
 
-module.exports = setup;
+global.LOG = (...args) => {
+  console.log('/------------------------------\\');
+  console.log(...args);
+  console.log('\\------------------------------/');
+  return args[args.length - 1];
+};
 

@@ -17,7 +17,6 @@ class ReduxTest extends Component {
     this.state = {};
   }
   render() {
-    console.log(this.props);
     return (
       <View>
         <View style={[styles.height160,styles.row]}>
