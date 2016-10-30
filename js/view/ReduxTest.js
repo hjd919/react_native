@@ -23,7 +23,7 @@ class ReduxTest extends Component {
          <View style={[styles.height160,styles.part_1_right]}>
               <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>{this.props.apiURL}</Text>
                  <TouchableHighlight onPress={this.props.loadConfig}>
-                 <Text>点击</Text>
+                 <Text>点击3333次</Text>
               </TouchableHighlight>
           </View>
           <View style={[styles.height160,styles.part_1_right]}>
