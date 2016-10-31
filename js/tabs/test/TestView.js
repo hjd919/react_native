@@ -7,27 +7,17 @@ import {
   Image
 } from 'react-native';
 import {connect} from 'react-redux';
-import {
-  loadConfig,
-} from '../actions';
 
-class ReduxTest extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+class TestView extends Component {
   render() {
     return (
       <View>
         <View style={[styles.height160,styles.row]}>
          <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>{this.props.apiURL}</Text>
-                 <TouchableHighlight onPress={this.props.loadConfig}>
-                 <Text>点击3333222次</Text>
-              </TouchableHighlight>
+              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>1</Text>
           </View>
           <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>{this.props.apiURL}</Text>
+              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>2</Text>
           </View>
         </View>
       </View>
@@ -100,4 +90,6 @@ function actions(dispatch){
   };
 }
 
-export default connect(select,actions)(ReduxTest);
+// export default connect(select,actions)(TestView);
+module.exports = connect(select,actions)(TestView);
+module.exports = TestView;

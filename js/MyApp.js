@@ -9,6 +9,7 @@ import {
 import MyNavigator from './MyNavigator';
 // 热更新
 import CodePush from "react-native-code-push";
+// import TestView from './tabs/test/TestView';
 
 class react_native extends Component {
   componentDidMount() {
@@ -27,7 +28,8 @@ class react_native extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MyNavigator/>
+          <MyNavigator/>
+         {/*<TestView/>*/}
       </View>
     );
   }
