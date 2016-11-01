@@ -8,16 +8,16 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 
-class TestView extends Component {
+class Test2View extends Component {
   render() {
     return (
       <View>
         <View style={[styles.height160,styles.row]}>
          <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>1</Text>
+              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>3</Text>
           </View>
           <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>2</Text>
+              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>4</Text>
           </View>
         </View>
       </View>
@@ -26,6 +26,12 @@ class TestView extends Component {
 }
 
 const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: "white",
+    flexDirection: "column",
+    justifyContent: "center"
+  },
   row:{
     flexDirection:'row',
   },
@@ -89,4 +95,4 @@ function actions(dispatch){
   };
 }
 
-export default connect(select,actions)(TestView);
+export default connect(select,actions)(Test2View);

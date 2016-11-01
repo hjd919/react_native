@@ -34,17 +34,24 @@
     - 更新包 code-push release-react react_native ios
 
 ## 开发环境和生产环境、安装手机
-    - 把所有的签名改为developer,设置开发团队
+    - 把所有的签名改为developer,设置开发团队;apple账号
 
 ## 应用功能开发
 
 * ios的tab页
     - 更新了组件名称，只需要引入一个TabBarIOS
-* 导航条
-* 列表
+* 导航条!
+    - react-native-tabbar-navigator [参考Weekly75](https://github.com/fakefish/Weekly75/blob/master/app/common/WeeklyApp.js)
+    - NavigatorIOS [参考shopping-react-native](https://github.com/bigsui/shopping-react-native)；当前使用此导航条
+    - 自定义导航条 [参考GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/tree/master/js/page)
+* 列表 [参考react-native-dribbble-app](https://github.com/catalinmiron/react-native-dribbble-app)! 封装api地址集合，action集合
 * 详情
 * 登录、用户登录状态
 * 分享
+
+## 参考app
+* f8app
+* catalinmiron/react-native-dribbble-app
 
 ## app推送配置，实现友盟推送
 

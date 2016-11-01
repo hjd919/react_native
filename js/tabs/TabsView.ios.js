@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  NavigatorIOS,
   TabBarIOS,
   View,
   Text,
@@ -13,6 +14,7 @@ import {
 } from '../actions';
 // tab页面
 import TestView from './test/TestView';
+import Test2View from './test2/Test2View';
 
 class TabsView extends Component {
 	// 选择菜单
@@ -21,14 +23,20 @@ class TabsView extends Component {
       	  	this.props.onTabSelect(tab);
       	}
     }
- _renderContent(color, pageText, num) {
-    return (
-      <View>
-        <Text>{pageText}</Text>
-        <Text>{num} re-renders of the {pageText}</Text>
-      </View>
-    );
-  }
+	_addNavigator(component,title) {
+	    return (
+	    	<NavigatorIOS
+	        style={styles.container}
+	        barTintColor='#000'
+	        titleTextColor="#fff"
+	        tintColor="#fff"
+	        translucent={true}
+	        initialRoute={{
+	            component: component,
+	            title: title,
+	     	}} />
+	    );
+	}
 	render(){
 		return (
 			<TabBarIOS tiniColor="#032250">
@@ -38,7 +46,7 @@ class TabsView extends Component {
 			    	icon={require('./test/img/maps-icon.png')}
 			    	selectedIcon={require('./test/img/maps-icon-active.png')}
 			    	onPress={this.onTabSelect.bind(this,'test')}>
-			    	<TestView navigator={this.props.navigator}/>
+				    {this._addNavigator(TestView,'test标题')}
 				</TabBarIOS.Item>
 				<TabBarIOS.Item
 			    	title="测试菜单2"
@@ -46,12 +54,19 @@ class TabsView extends Component {
 			    	icon={require('./test/img/maps-icon.png')}
 			    	selectedIcon={require('./test/img/maps-icon-active.png')}
 			    	onPress={this.onTabSelect.bind(this,'test2')}>
-			    	{this._renderContent('#783E33', 'Red Tab', 23)}
+				    {this._addNavigator(Test2View,'test2标题')}
 				</TabBarIOS.Item>
 			</TabBarIOS>
 		);
 	}
 }
+
+// styles
+const styles = StyleSheet.create({
+	container:{
+		flex:1,
+	},
+});
 
 // redux
 function select(store){
