@@ -1,3 +1,4 @@
+import * as TYPES from './types';
 
 async function loadConfig(){
 	try{
@@ -5,7 +6,7 @@ async function loadConfig(){
 		const data = await response.json();
 		const config = data.data;	
 		const action = {
-		  type:'LOADED_CONFIG',
+		  type:TYPES.LOADED_CONFIG,
 		  config,
 		};
 		return action;

@@ -1,6 +1,8 @@
+import * as TYPES from './types';
+
 function switchTab(tab) {
     return {
-        type: 'SWITCH_TAB',
+        type: TYPES.SWITCH_TAB,
         tab,
     };
 }

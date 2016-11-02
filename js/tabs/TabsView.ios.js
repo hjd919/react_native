@@ -27,10 +27,9 @@ class TabsView extends Component {
 	    return (
 	    	<NavigatorIOS
 	        style={styles.container}
-	        barTintColor='#000'
-	        titleTextColor="#fff"
-	        tintColor="#fff"
-	        translucent={true}
+	        titleTextColor="#333"
+	        tintColor="#dadada"
+	        translucent={false}
 	        initialRoute={{
 	            component: component,
 	            title: title,
