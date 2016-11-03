@@ -1,9 +1,9 @@
-var MyColors = require('MyColors');
+var MyColors = require('./MyColors');
 var Image = require('Image');
 import LinearGradient from 'react-native-linear-gradient';
 var React = require('React');
 var StyleSheet = require('StyleSheet');
-var { Text } = require('MyText');
+var { Text } = require('./MyText');
 var TouchableOpacity = require('TouchableOpacity');
 var View = require('View');
 
@@ -101,4 +101,4 @@ var styles = StyleSheet.create({
   }
 });
 
-export default MyButton;
+module.exports = MyButton;

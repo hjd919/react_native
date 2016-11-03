@@ -1,9 +1,10 @@
 import * as TYPES from './types';
+import api from '../helpers/api';
 
 async function loadConfig(){
 	try{
-		const response = await fetch('http://monitor.adyouzi.cn/config/app_launch');
-		const data = await response.json();
+		const data = await api.getResources('config/app_launch');
+		// const data = await response.json();
 		const config = data.data;	
 		const action = {
 		  type:TYPES.LOADED_CONFIG,

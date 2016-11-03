@@ -7,74 +7,34 @@ import {
   Image
 } from 'react-native';
 import {connect} from 'react-redux';
+import {
+  loadConfig
+} from '../../actions';
+import TestList from './TestList';
+// import MyButton from '../../common/MyButton';
 
 class TestView extends Component {
   render() {
+    let content = 
+      <TestList/>
+    ;
     return (
-      <View>
-        <View style={[styles.height160,styles.row]}>
-         <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>1</Text>
-          </View>
-          <View style={[styles.height160,styles.part_1_right]}>
-              <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>2</Text>
-          </View>
-        </View>
+      <View style={styles.container}>
+          <TouchableHighlight
+                style={{padding:6}}
+                onPress={() => this.props.dispatch(loadConfig())} 
+                underlayColor='transparent'>
+                <Text>aaa</Text>
+            </TouchableHighlight>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  row:{
-    flexDirection:'row',
+  container:{
+    flex:1,
   },
-  height160: {
-    height:160
-  },
-  part_1_left: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#DCD7CD',
-  },
-  part_1_right: {
-    flex: 2,
-    borderWidth: 1,
-    borderColor: '#DCD7CD',
-  },
-  font30: {
-    fontSize: 90,
-  },
-  marTop18:{
-      marginTop:18,
-  },
-  marTop14:{
-      marginTop:14,
-  },
-  font14:{
-      fontSize:14,
-  },
-  font10:{
-      fontSize:12,
-  },
-  yue:{
-      height:80,
-  },
-  green:{
-      color:'#55A44B',
-      fontWeight: '900'
-  },
-  red:{
-      color: '#FF3F0D',
-      fontWeight: '900'
-  },
-  marLeft10:{
-      marginLeft:10,
-  },
-  hanbao:{
-      height:55,
-      width:55
-  }
 });
 
 function select(store){
@@ -83,10 +43,5 @@ function select(store){
   };
 }
 
-function actions(dispatch){
-  return {
-    loadConfig:()=>dispatch(loadConfig())
-  };
-}
 
-export default connect(select,actions)(TestView);
+export default connect(select)(TestView);

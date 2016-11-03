@@ -46,14 +46,19 @@
     - react-native-tabbar-navigator [参考Weekly75](https://github.com/fakefish/Weekly75/blob/master/app/common/WeeklyApp.js)
     - NavigatorIOS [参考shopping-react-native](https://github.com/bigsui/shopping-react-native)；当前使用此导航条
     - 自定义导航条 [参考GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/tree/master/js/page)
+* common增加全局静态资源目录，含有styles,img;局部资源在各自页面目录下
+* 应用配置目录，含有各个配置json文件，例如菜单，应用基本信息
+* helpers目录，含有基础帮助，例如获取api资源，获取图片
 * 列表 [参考react-native-dribbble-app](https://github.com/catalinmiron/react-native-dribbble-app)! 封装api地址集合，!
 * 详情
 * 登录、用户登录状态
 * 分享
-* 公共：适配ios和android
+* 公共组件：适配ios和android
     - 样式 MyStyleSheet ios|android
     - 纯按钮 MyButton: type: (default)'primary' | 'secondary' | 'bordered';
     - 列表按钮 MyTouchable:TouchableHighlight|TouchableNativeFeedback
+
+
 * 优化
     1. 使用Navigator替换NavigatorIOS 或者 自定义导航条
 
@@ -72,3 +77,4 @@
     - 网络请求失败：封了非https的请求：https://segmentfault.com/a/1190000002933776
     - NavigatorIOS的内容上移动了，默认是这样，需加参数translucent={false} 取消透明
     - ViewPager 和 react-native-viewpager分别作用？区别在哪？
+    - MyButton不好用
