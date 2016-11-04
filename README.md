@@ -49,7 +49,9 @@
 * common增加全局静态资源目录，含有styles,img;局部资源在各自页面目录下
 * 应用配置目录，含有各个配置json文件，例如菜单，应用基本信息
 * helpers目录，含有基础帮助，例如获取api资源，获取图片
-* 列表 [参考react-native-dribbble-app](https://github.com/catalinmiron/react-native-dribbble-app)! 封装api地址集合，!
+* 封装获取api资源
+* 列表 [参考react-native-dribbble-app](https://github.com/catalinmiron/react-native-dribbble-app)
+    - TODO 封装公共列表；通过接口获取真实数据，并渲染
 * 详情
 * 登录、用户登录状态
 * 分享
