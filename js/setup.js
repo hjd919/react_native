@@ -21,10 +21,10 @@ export default function setup(){
 
 	    render() {
 	    	// 等待加载永久数据
-	    	if(this.state.isLoading){
-	    		console.log('loading app');
-	    		return null;
-	    	}
+	    	// if(this.state.isLoading){
+	    	// 	console.log('loading app');
+	    	// 	return null;
+	    	// }
 	        return (
 	        	<Provider store={this.state.store}>
 	          	<MyApp/>	

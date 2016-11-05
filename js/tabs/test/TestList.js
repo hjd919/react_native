@@ -9,6 +9,7 @@ import {
 // 平台组件
 import MyTouchable from '../../common/MyTouchable';
 import {Text} from '../../common/MyText';
+import {Loading} from '../../common/Loading';
 // actions
 import {
 	fetchProductsIfNeeded,
@@ -29,23 +30,41 @@ export default class TestList extends Component {
 	    };
 	}
 
+	// 挂载完,props变化时
 	componentWillReceiveProps(nextProps) {
-		if (this.props.data !== nextProps.data) {
+		if(nextProps.data.length>0){
 			this.setState({
 				dataSource: cloneWithData(this.state.dataSource, nextProps.data),
-			});
+			});			
 		}
 	}
 
 	render() {
-		const {onRefresh,renderRow} = this.props;
-		
+		const {onRefresh,renderRow,isLoadingFail,isLoading,onEndReached} = this.props;
+        if (isLoadingFail){
+            // TODO 优化加载失败组件
+            return (
+                <View>
+                    <Text>加载失败！请检查网络</Text>
+                </View>
+            );
+        }
+        if (isLoading){
+            // TODO 优化正在加载进度条组件
+            return (
+                <View>
+                    <Text>正在加载中..</Text>
+                </View>
+            );
+        }		
 		//{/* 使用数据源来实例化,接受数据源数组中的每个数据*/}
 		let content = <ListView
 						ref="listView"
 						dataSource={this.state.dataSource}
 						renderRow={renderRow}
-						renderFooter={()=>{}}
+						renderFooter={this._renderFooter}
+						onEndReached={onEndReached}
+                		enableEmptySections={true}
 			    		refreshControl={
 			              <RefreshControl
 			                refreshing={false}
@@ -64,7 +83,14 @@ export default class TestList extends Component {
 		);
 	}
 
-
+	_renderFooter(){
+		return 
+				<View style={styles.scrollSpinner}>
+      				<Loading />
+    			</View>
+    		;
+		return this.props.renderFooter && this.props.renderFooter();
+	}
 }
 
 function cloneWithData(dataSource, data) {

@@ -1,26 +1,23 @@
 "use strict";
 
-var API_URL = "http://monitor.adyouzi.cn/";
+var API_URL = "http://bookpp.applinzi.com/api/index.php/";
 // TODO 可以在此做接口签名
 
-function fetchData(URL) {
-  return fetch(URL, {
-    headers: {
-      // "Authorization": "Bearer " + ACCESS_TOKEN
-    }
-  }).then((response) => response.json())
+// 通过获取数据
+function _getData(URL) {
+  return fetch(URL).then((response) => response.json());
 }
 
 module.exports = {
-  getShotsByType: function(type: string, pageNumber: ?number): ?Object {
+  getShotsByType: function(type, pageNumber) {
     var URL = API_URL + "shots/?list=" + type;
     if (pageNumber) {
       URL += "&per_page=10&page=" + pageNumber;
     }
 
-    return fetchData(URL);
+    return _getData(URL);
   },
-  getResources: function(url: ?string): ?Object {
-    return fetchData(API_URL+url);
+  getResources: function(url) {
+    return _getData(API_URL+url);
   }
 };
