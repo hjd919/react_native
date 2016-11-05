@@ -17,15 +17,14 @@ export default function products(state = initialState, action){
 				isLoading:action.isLoading,
 				isLoadingFail:action.isLoadingFail,
 			};
-		case TYPES.REFRESHP_RODUCTS:
+		break;
+		case TYPES.REFRESH_PRODUCTS:
 			return {...state,
-				isRefresh:true,
-				page:1,
-			};
-		case TYPES.INCR_PRODUCTS_PAGE:
-			return {...state,
+				isRefresh:action.isRefresh,
 				page:action.page,
+				products:action.products,
 			};
+		break;
 		case TYPES.LOADED_PRODUCTS:
 			return {...state,
 				isLoading:action.isLoading,
@@ -33,7 +32,9 @@ export default function products(state = initialState, action){
 				hasMore:action.hasMore,
 			    page:action.page,
 			    products:action.products,
+				isRefresh:action.isRefresh,
 			};
+		break;
 		default:
 			return state;
 	}

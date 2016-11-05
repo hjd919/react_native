@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import {
     refreshProducts,
     loadProductsIfNeeded,
-    incrPage,
 } from '../../actions';
 import TestList from './TestList';
 import TestCell from './TestCell';
@@ -55,11 +54,7 @@ class TestView extends Component {
 
     // 列表下拉加载事件
     onEndReached(){
-      const {hasMore,isLoading,loadProductsIfNeeded,page,incrPage} = this.props;
-      if(!hasMore || isLoading){
-        return;
-      }
-      incrPage();
+      const {loadProductsIfNeeded} = this.props;
       loadProductsIfNeeded();
     }
 
@@ -98,9 +93,7 @@ function actions(dispatch) {
     return {
       loadProductsIfNeeded: () => dispatch(loadProductsIfNeeded()),
       refreshProducts: () => dispatch(refreshProducts()),
-      incrPage: () => dispatch(incrPage()),
     };
 }
 
-module.exports = connect(select, actions)(TestView);
-// export default connect(select, actions)(TestView);
+export default connect(select, actions)(TestView);

@@ -68,13 +68,16 @@ function _requestProducts(){
 
 // 是否需要获取数据
 function shouldLoadProducts(state){
-	const {products} = state.products;
-	if(products.length == 0){
+	const products = state.products;
+
+	if(products.products.length == 0){
 		return true;
-	} else if (products.isLoading) {
+	} else if (products.isLoading == true) {
 		return false;
-	} else {
+	} else if (products.hasMore == false) {
 		// 重新获取，不从缓存获取
+		return false;
+	}else{
 		return true;
 	}
 }
@@ -90,27 +93,15 @@ function loadProductsIfNeeded() {
 	}
 }
 
-// 刷新数据
+// 刷新数据=重置数据:页码和列表数据
 function refreshProducts(){
 	const action = {
 	  type:TYPES.REFRESH_PRODUCTS,
+	  products:[],
 	  page:1,
+	  isRefresh:true,
 	};
 	return action;	
 }
 
-// 增加页面
-function incrPage() {
-	return (dispatch,getState) => {
-		const state = getState();
-		const page = state.products.page++;
-		const action = {
-			type:TYPES.INCR_PRODUCTS_PAGE,
-		  	page:page,
-		}	
-
-		return dispatch(action);	
-	}
-}
-
-export default {loadProductsIfNeeded, refreshProducts, incrPage};
+export default {loadProductsIfNeeded, refreshProducts};
