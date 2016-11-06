@@ -15,6 +15,8 @@ import {
 // tab页面
 import TestView from './test/TestView';
 import Test2View from './test2/Test2View';
+import MineView from './mine/MineView';
+import LoginView from '../login/LoginView';
 
 class TabsView extends Component {
 	// 选择菜单
@@ -24,6 +26,13 @@ class TabsView extends Component {
       	}
     }
 	_addNavigator(component,title) {
+		if(title == '我'){
+			// 判断登录
+			const{isLoggedIn} = this.props;
+			if(!isLoggedIn){
+				component = LoginView;
+			}
+		}
 	    return (
 	    	<NavigatorIOS
 	        style={styles.container}
@@ -54,6 +63,14 @@ class TabsView extends Component {
 			    	selectedIcon={require('./test/img/maps-icon-active.png')}
 			    	onPress={this.onTabSelect.bind(this,'test2')}>
 				    {this._addNavigator(Test2View,'test2标题')}
+				</TabBarIOS.Item>
+				<TabBarIOS.Item
+			    	title="我"
+			    	selected={this.props.tab === 'mine'}
+			    	icon={require('./test/img/maps-icon.png')}
+			    	selectedIcon={require('./test/img/maps-icon-active.png')}
+			    	onPress={this.onTabSelect.bind(this,'mine')}>
+				    {this._addNavigator(MineView,'我')}
 				</TabBarIOS.Item>
 			</TabBarIOS>
 		);

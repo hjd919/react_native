@@ -12,8 +12,7 @@ export default class TestCell extends Component{
 		const {row} = this.props;
 
 		return (
-
-	      <TouchableHighlight underlayColor="#f00" onPress={this.props.onPress}>
+	      <TouchableHighlight underlayColor="#f00" onPress={this.props.handlePressCell}>
 	        <View style={styles.card}>
 	          <View>
 	            <Image

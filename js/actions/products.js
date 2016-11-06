@@ -19,10 +19,8 @@ async function _loadProducts(state){
 		let new_products = data.product;
 		const hasMore = new_products.length < PAGE_SIZE ? false : true;
 
-		// 如果有更多数据，更新页码
-		if(hasMore){
-			page++;
-		}
+		// 更新页码
+		page++;
 
 		// 判断是否刷新还是加载更多
 		if(isRefresh){

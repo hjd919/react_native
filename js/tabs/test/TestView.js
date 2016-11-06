@@ -13,6 +13,7 @@ import {
 } from '../../actions';
 import TestList from './TestList';
 import TestCell from './TestCell';
+import TestDetail from './TestDetail';
 // import MyButton from '../../common/MyButton';
 
 class TestView extends Component {
@@ -41,8 +42,18 @@ class TestView extends Component {
       return (
         <TestCell
           row={row}
+          handlePressCell={this.handlePressCell.bind(this,row)}
         />
       );
+    }
+
+    handlePressCell(row){
+      const nextRoute = {
+        component: TestDetail,
+        title: row.name,
+        passProps: { row : row }
+      };
+      this.props.navigator.push(nextRoute);
     }
 
     // 刷新列表事件

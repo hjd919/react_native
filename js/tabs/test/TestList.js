@@ -106,5 +106,8 @@ function cloneWithData(dataSource, data) {
 var styles = StyleSheet.create({
 	container:{
 		flex:1,
-	}
+	},
+	scrollSpinner: {
+	  marginVertical: 20,
+	},
 });

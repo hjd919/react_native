@@ -60,11 +60,15 @@
     - 纯按钮 MyButton: type: (default)'primary' | 'secondary' | 'bordered';
     - 列表按钮 MyTouchable:TouchableHighlight|TouchableNativeFeedback
 
-
-* 优化
-    1. 使用Navigator替换NavigatorIOS 或者 自定义导航条
-
 ## 组件
+    - 滚动轮播
+    - 下拉刷新
+    - 模态框
+    - HTML显示
+    - react-native-parallax-view 详情页、dribbble-app
+
+## 工具
+    - Deco IDE
 
 ## API
 [Linking](http://reactnative.cn/docs/0.36/linking.html) 打开应用或者捕获唤起app的连接
@@ -80,3 +84,11 @@
     - NavigatorIOS的内容上移动了，默认是这样，需加参数translucent={false} 取消透明
     - ViewPager 和 react-native-viewpager分别作用？区别在哪？
     - MyButton不好用
+
+## 经验体会
+    组件不做逻辑状态判断，放action判断
+
+## TODO
+    * 列表被tab页挡住：运行含tab页的app查看解决方案 
+    * 详情页 
+    * 优化使用Navigator替换NavigatorIOS 或者 自定义导航条

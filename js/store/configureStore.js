@@ -23,9 +23,10 @@ var createStoreWithMiddleware = applyMiddleware(thunk, promise, array, crashRepo
 
 export default function configureStore(onComplete){
 	// 持久保存
-	// const store = autoRehydrate()(createStoreWithMiddleware)(reducers);
-	// persistStore(store, {storage: AsyncStorage}, onComplete);
-	const store = createStoreWithMiddleware(reducers);
+	const store = autoRehydrate()(createStoreWithMiddleware)(reducers);
+	// const store = createStoreWithMiddleware(reducers);
+	persistStore(store, {storage: AsyncStorage}, onComplete);
+	// const store = createStoreWithMiddleware(reducers);
 	// if(isDebuggingInChrome){
 	// 	window.store = store;
 	// }
