@@ -53,20 +53,22 @@
 * 列表 [参考react-native-dribbble-app](https://github.com/catalinmiron/react-native-dribbble-app)
     - TODO 封装公共列表；通过接口获取真实数据，并渲染
 * 详情
-* 登录、用户登录状态
 * 分享
+* 用户注册（邮箱，第三方，设备idfa）登录
 * 公共组件：适配ios和android
     - 样式 MyStyleSheet ios|android
     - 纯按钮 MyButton: type: (default)'primary' | 'secondary' | 'bordered';
     - 列表按钮 MyTouchable:TouchableHighlight|TouchableNativeFeedback
 
 ## 组件
-    - 滚动轮播
-    - 下拉刷新
+    - HTML显示 
+    - 图标字体 react-native-vector-icons
+    - 组件 react-native-elements TODO 
+    - 滚动轮播 !
+    - 下拉刷新 
     - 模态框
-    - HTML显示
     - react-native-parallax-view 详情页、dribbble-app
-
+    
 ## 工具
     - Deco IDE
 
@@ -89,6 +91,6 @@
     组件不做逻辑状态判断，放action判断
 
 ## TODO
-    * 列表被tab页挡住：运行含tab页的app查看解决方案 
+    * 列表被tab页挡住：运行含tab页的app查看解决方案；修改为react-native-elements的tab使其跨平台
     * 详情页 
     * 优化使用Navigator替换NavigatorIOS 或者 自定义导航条

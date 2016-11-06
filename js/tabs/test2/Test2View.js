@@ -8,6 +8,9 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 
+// 页面子组件
+import RNElements from './RNElements';
+
 class Test2View extends Component {
   render() {
     return (
@@ -20,6 +23,7 @@ class Test2View extends Component {
               <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>4</Text>
           </View>
         </View>
+        <RNElements/>
       </View>
     );
   }
