@@ -9,7 +9,7 @@ import {
 // 平台组件
 import MyTouchable from '../../common/MyTouchable';
 import {Text} from '../../common/MyText';
-import {Loading} from '../../common/Loading';
+import Loading from '../../common/Loading';
 // actions
 import {
 	fetchProductsIfNeeded,
@@ -40,7 +40,7 @@ export default class TestList extends Component {
 	}
 
 	render() {
-		const {onRefresh,renderRow,isLoadingFail,isLoading,onEndReached} = this.props;
+		const {onRefresh,renderRow,isLoadingFail,isLoading,onEndReached,renderFooter,data} = this.props;
         if (isLoadingFail){
             // TODO 优化加载失败组件
             return (
@@ -49,22 +49,21 @@ export default class TestList extends Component {
                 </View>
             );
         }
-        if (isLoading){
+        if (data.length==0){
             // TODO 优化正在加载进度条组件
-            return (
-                <View>
-                    <Text>正在加载中..</Text>
-                </View>
-            );
+            return <Loading isLoading={isLoading}/>;
         }		
 		//{/* 使用数据源来实例化,接受数据源数组中的每个数据*/}
 		let content = <ListView
 						ref="listView"
 						dataSource={this.state.dataSource}
 						renderRow={renderRow}
-						renderFooter={this._renderFooter}
 						onEndReached={onEndReached}
+						onEndReachedThreshold={100}
+        				renderFooter={this._renderFooter.bind(this)}
                 		enableEmptySections={true}
+                		initialListSize={10}
+                		pageSize={10}
 			    		refreshControl={
 			              <RefreshControl
 			                refreshing={false}
@@ -82,15 +81,11 @@ export default class TestList extends Component {
 			</View>
 		);
 	}
+    _renderFooter(){
+      const {isLoading,hasMore} = this.props;
 
-	_renderFooter(){
-		return 
-				<View style={styles.scrollSpinner}>
-      				<Loading />
-    			</View>
-    		;
-		return this.props.renderFooter && this.props.renderFooter();
-	}
+      return hasMore?<View style={styles.scrollSpinner}><Loading isLoading={isLoading}/></View>:null;
+    }
 }
 
 function cloneWithData(dataSource, data) {

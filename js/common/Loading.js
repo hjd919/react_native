@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {
-  ActivityIndicatorIOS,
+  ActivityIndicator,
   StyleSheet,
   View,
 } from 'react-native';
@@ -9,7 +9,7 @@ export default class Loading extends Component {
 	render(){
 		return (
 	      <View style={[styles.container, styles.centerText]}>
-	        <ActivityIndicatorIOS
+	        <ActivityIndicator
 	            animating={true}
 	            style={styles.spinner}
 	          />

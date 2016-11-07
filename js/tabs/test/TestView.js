@@ -4,7 +4,8 @@ import {
     Text,
     View,
     TouchableHighlight,
-    Image
+    Image,
+    ScrollView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import {
@@ -27,7 +28,9 @@ class TestView extends Component {
     // 组件挂载完
     componentDidMount() {
       // 加载列表
-      this.props.loadProductsIfNeeded();
+      const {refreshProducts,loadProductsIfNeeded} = this.props;
+      refreshProducts();
+      loadProductsIfNeeded();
     }
 
     // 组件挂载完，页面store变化时调用,如选择分类
@@ -78,6 +81,7 @@ class TestView extends Component {
           onEndReached={this.onEndReached.bind(this)}
           isLoadingFail={this.props.isLoadingFail}
           isLoading={this.props.isLoading}
+          hasMore={this.props.hasMore}
         />;
         return (<View style={styles.container}>{content}</View>);
     }
@@ -85,8 +89,12 @@ class TestView extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-    }
+        flex: 1,
+        marginBottom:70
+    },
+    scrollSpinner: {
+      marginVertical: 20,
+    },
 });
 
 function select(store) {

@@ -5,10 +5,12 @@ import {
   TabBarIOS,
   View,
   Text,
+  Platform,
 } from 'react-native';
-// redux的connect
+import colors from '../configs/colors.json';
+import fonts from '../configs/fonts.json';
+// redux的connect,actions
 import {connect} from 'react-redux';
-// redux的actions
 import {
 	switchTab
 } from '../actions';
@@ -17,6 +19,8 @@ import TestView from './test/TestView';
 import Test2View from './test2/Test2View';
 import MineView from './mine/MineView';
 import LoginView from '../login/LoginView';
+// 组件
+import { Tabs, Tab, Icon } from 'react-native-elements'
 
 class TabsView extends Component {
 	// 选择菜单
@@ -47,32 +51,29 @@ class TabsView extends Component {
 	}
 	render(){
 		return (
-			<TabBarIOS tiniColor="#032250">
-				<TabBarIOS.Item
-			    	title="测试菜单"
-			    	selected={this.props.tab === 'test'}
-			    	icon={require('./test/img/maps-icon.png')}
-			    	selectedIcon={require('./test/img/maps-icon-active.png')}
-			    	onPress={this.onTabSelect.bind(this,'test')}>
-				    {this._addNavigator(TestView,'test标题')}
-				</TabBarIOS.Item>
-				<TabBarIOS.Item
-			    	title="测试菜单2"
-			    	selected={this.props.tab === 'test2'}
-			    	icon={require('./test/img/maps-icon.png')}
-			    	selectedIcon={require('./test/img/maps-icon-active.png')}
-			    	onPress={this.onTabSelect.bind(this,'test2')}>
-				    {this._addNavigator(Test2View,'test2标题')}
-				</TabBarIOS.Item>
-				<TabBarIOS.Item
-			    	title="我"
-			    	selected={this.props.tab === 'mine'}
-			    	icon={require('./test/img/maps-icon.png')}
-			    	selectedIcon={require('./test/img/maps-icon-active.png')}
-			    	onPress={this.onTabSelect.bind(this,'mine')}>
-				    {this._addNavigator(MineView,'我')}
-				</TabBarIOS.Item>
-			</TabBarIOS>
+			<Tabs>
+			  <Tab
+	            titleStyle={[styles.titleStyle]}
+	            selectedTitleStyle={[styles.titleSelected, {marginTop: -3, marginBottom: 7}]}			
+			    selected={this.props.tab === 'test'}
+			    title={this.props.tab === 'test' ? 'test标题' : null}
+			    renderIcon={() => <Icon name='whatshot' size={26} />}
+			    renderSelectedIcon={() => <Icon color={colors.primary} name='whatshot' size={26} />}
+			    onPress={this.onTabSelect.bind(this,'test')}>
+				{this._addNavigator(TestView,'test标题')}
+			  </Tab>
+			  <Tab
+			    tabStyle={this.props.tab !== 'test2' && { marginBottom: -6 }}
+	            titleStyle={[styles.titleStyle, {marginTop: -1}]}
+	            selectedTitleStyle={[styles.titleSelected, {marginTop: -3, marginBottom: 7}]}	
+			    selected={this.props.tab === 'test2'}
+			    title={this.props.tab === 'test2' ? 'test2标题' : null}
+			    renderIcon={() => <Icon style={{paddingBottom: 4}} name='contacts' size={26} />}
+			    renderSelectedIcon={() => <Icon color={colors.primary} name='contacts' size={26} />}
+			    onPress={this.onTabSelect.bind(this,'test2')}>
+				{this._addNavigator(Test2View,'test2标题')}
+			  </Tab>
+			</Tabs>
 		);
 	}
 }
@@ -82,6 +83,13 @@ const styles = StyleSheet.create({
 	container:{
 		flex:1,
 	},
+    titleStyle: {
+      ...Platform.select({
+        ios: {
+          fontFamily: fonts.ios.black
+        }
+      })
+    }
 });
 
 // redux
