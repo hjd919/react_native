@@ -4,6 +4,7 @@ import {
   Text,
   View,
   TouchableHighlight,
+  ScrollView,
   Image
 } from 'react-native';
 import {connect} from 'react-redux';
@@ -14,7 +15,11 @@ import RNElements from './RNElements';
 class Test2View extends Component {
   render() {
     return (
-      <View>
+      <ScrollView style={styles.contentContainer}
+        automaticallyAdjustContentInsets={false}
+        onScroll={() => { console.log('onScroll!'); }}
+        scrollEventThrottle={200}
+      >
         <View style={[styles.height160,styles.row]}>
          <View style={[styles.height160,styles.part_1_right]}>
               <Text style={[styles.font14, styles.marTop18, styles.marLeft10, styles.green]}>3</Text>
@@ -24,12 +29,15 @@ class Test2View extends Component {
           </View>
         </View>
         <RNElements/>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  contentContainer:{
+    paddingVertical: 20,
+  },
   container:{
     flex: 1,
     backgroundColor: "white",

@@ -63,19 +63,12 @@
     - 列表按钮 MyTouchable:TouchableHighlight|TouchableNativeFeedback
 ps 用react-native-elements样式库组件替换
 
-## 组件
-    - HTML显示 
-    - 模态框 modal|react-native-modal！
-    - 图标字体 react-native-vector-icons
-    - 组件 react-native-elements TODO 
-    - 滚动轮播 react-native-swiper
-    - react-native-parallax-view 详情页、dribbble-app
+## [组件](/doc/组件.md)
+## [生命周期](/doc/生命周期.md)
+## [API](/doc/API.md)
 
 ## 工具
     - Deco IDE 组件编写方便，拖拉原生组件；缺点：
-
-## API
-[Linking](http://reactnative.cn/docs/0.36/linking.html) 打开应用或者捕获唤起app的连接
 
 ## 参考app
 * f8app
