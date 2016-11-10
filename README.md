@@ -80,17 +80,17 @@ ps 用react-native-elements样式库组件替换
     - 网络请求失败：封了非https的请求：https://segmentfault.com/a/1190000002933776
     - NavigatorIOS的内容上移动了，默认是这样，需加参数translucent={false} 取消透明
     - MyButton不好用：用react-native-elements样式库组件替换
-    
     - ViewPager 和 react-native-viewpager分别作用？区别在哪？
+    - tabbar遮挡了：marginBottom:50
 
 ## 经验体会
-    组件不做逻辑状态判断，放action判断，组件只负责渲染各个状态界面
-    list加载条不显示问题解决：导入时组件不能用{}括起来
-    导航条不显示：组件如果被View包括，包括起来需加flex:1样式
+    * 组件不做逻辑状态判断，放action判断，组件只负责渲染各个状态界面
+    * list加载条不显示问题解决：导入时组件不能用{}括起来
+    * 导航条不显示：组件如果被View包括，包括起来需加flex:1样式
 
 ## TODO
-    * 分享
     * 用户注册（邮箱，第三方，设备idfa）登录
     * “我的”界面 react-native-parallax-view
     * 消息推送
     * 优化使用Navigator替换NavigatorIOS 或者 自定义导航条
+    * [微信分享](http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%A5%BD%E5%8F%8B%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD-androidios%E5%8F%8C%E5%B9%B3%E5%8F%B0/)

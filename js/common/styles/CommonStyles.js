@@ -9,6 +9,10 @@ var styles = StyleSheet.create({
     wrapper: {
         flex: 1,
     },
+    tabbarContainer:{
+        flex: 1,
+        marginBottom:50
+    },
     bgColor: {
         backgroundColor: '#F5FCFF'
     },

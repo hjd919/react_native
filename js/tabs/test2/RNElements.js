@@ -20,10 +20,14 @@ import {
   Icon,
   List,
   ListItem,
+  SearchBar,
 } from 'react-native-elements'
 import Swiper from 'react-native-swiper';
+import CommonStyles from '../../common/styles/CommonStyles';
 
 export default class RNElements extends Component{
+  componentDidMount() {
+  }
 	render(){
 		const list = [
 		  {
@@ -38,7 +42,7 @@ export default class RNElements extends Component{
 		  },
 		]
 		return (
-            <View>{/*
+            <View style={CommonStyles.tabbarContainer}>{/*
               <Swiper style={styles.wrapper} showsButtons={true}>
                 <View style={styles.slide1}>
                   <Text style={styles.text}>Hello Swiper</Text>
@@ -50,6 +54,13 @@ export default class RNElements extends Component{
                   <Text style={styles.text}>And simple</Text>
                 </View>
               </Swiper>*/}
+            <SearchBar
+              lightTheme
+              round
+              autoFocus={true}
+              onChangeText={()=>{}}
+              focus={()=>{}}
+              placeholder='搜索热门' />
             <ActivityIndicator
               style={{
                 alignItems: 'center',

@@ -15,7 +15,7 @@ import {
 import TestList from './TestList';
 import TestCell from './TestCell';
 import TestDetail from './TestDetail';
-// import MyButton from '../../common/MyButton';
+import CommonStyles from '../../common/styles/CommonStyles';
 
 class TestView extends Component {
     constructor(props) {
@@ -83,14 +83,12 @@ class TestView extends Component {
           isLoading={this.props.isLoading}
           hasMore={this.props.hasMore}
         />;
-        return (<View style={styles.container}>{content}</View>);
+        return (<View style={CommonStyles.tabbarContainer}>{content}</View>);
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        marginBottom:70
     },
     scrollSpinner: {
       marginVertical: 20,
