@@ -37,10 +37,6 @@ class TabsView extends Component {
 				component = LoginView;
 			}
 		}
-
-		if(title == 'test2标题'){
-			return (<component/>);
-		}
 	    return (
 	    	<NavigatorIOS
 	        style={styles.container}
@@ -57,37 +53,25 @@ class TabsView extends Component {
 		return (
 			<Tabs>
 			  <Tab
-			    title='发现'
 	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
+	            selectedTitleStyle={[styles.titleSelected, {marginTop: -3, marginBottom: 7}]}			
 			    selected={this.props.tab === 'test'}
-	            icon={styles.titleSelected}		
-			    renderIcon={() => <Icon color={colors.grey1} name='explore' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='explore' size={26} />}
+			    title={this.props.tab === 'test' ? 'test标题' : null}
+			    renderIcon={() => <Icon name='whatshot' size={26} />}
+			    renderSelectedIcon={() => <Icon color={colors.primary} name='whatshot' size={26} />}
 			    onPress={this.onTabSelect.bind(this,'test')}>
 				{this._addNavigator(TestView,'test标题')}
 			  </Tab>
 			  <Tab
-			    title='消息'
-	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
+			    tabStyle={this.props.tab !== 'test2' && { marginBottom: -6 }}
+	            titleStyle={[styles.titleStyle, {marginTop: -1}]}
+	            selectedTitleStyle={[styles.titleSelected, {marginTop: -3, marginBottom: 7}]}	
 			    selected={this.props.tab === 'test2'}
-	            icon={styles.titleSelected}
-			    renderIcon={() => <Icon color={colors.grey1} name='message' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='message' size={26} />}
+			    title={this.props.tab === 'test2' ? 'test2标题' : null}
+			    renderIcon={() => <Icon style={{paddingBottom: 4}} name='contacts' size={26} />}
+			    renderSelectedIcon={() => <Icon color={colors.primary} name='contacts' size={26} />}
 			    onPress={this.onTabSelect.bind(this,'test2')}>
-				<Test2View/>
-			  </Tab>
-			  <Tab
-			    title='我的'
-	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
-			    selected={this.props.tab === 'mine'}
-	            icon={styles.titleSelected}
-			    renderIcon={() => <Icon color={colors.grey1} name='account-circle' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='account-circle' size={26} />}
-			    onPress={this.onTabSelect.bind(this,'mine')}>
-				{this._addNavigator(MineView,'mine标题')}
+				{this._addNavigator(Test2View,'test2标题')}
 			  </Tab>
 			</Tabs>
 		);
@@ -97,13 +81,14 @@ class TabsView extends Component {
 // styles
 const styles = StyleSheet.create({
 	container:{
-		flex:1,
+		flex:1
 	},
     titleStyle: {
-       color: '#666',
-    },
-    titleSelected:{
-    	color:'#333',
+      ...Platform.select({
+        ios: {
+          fontFamily: fonts.ios.black
+        }
+      })
     }
 });
 
