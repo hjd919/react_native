@@ -17,12 +17,12 @@ import {connect} from 'react-redux';
 // import ModalBox from 'react-native-modalbox';
 // import Spinner from 'react-native-spinkit';
 
-import CommonStyles from '../common/styles/CommonStyles';
+import commonStyles from '../styles/commonStyles';
 
 
 class LoginView extends Component {
 	render(){
-    return (<View style={[CommonStyles.wrapper]}>
+    return (<View style={[commonStyles.wrapper]}>
           <Text>登录页</Text>
           </View>);
 	}

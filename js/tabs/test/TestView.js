@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableHighlight,
-    Image,
-    ScrollView,
+  View,
 } from 'react-native';
+
+// common
+import commonStyles from '../../styles/commonStyles';
+
+// redux
 import { connect } from 'react-redux';
 import {
     refreshProducts,
     loadProductsIfNeeded,
 } from '../../actions';
+
+// component
 import TestList from './TestList';
 import TestCell from './TestCell';
+import NavBar from 'react-native-navbar';
+
+// page
 import TestDetail from './TestDetail';
-import CommonStyles from '../../common/styles/CommonStyles';
+
+// 第三方插件
+import { Icon } from 'react-native-elements'
 
 class TestView extends Component {
     constructor(props) {
@@ -27,10 +34,8 @@ class TestView extends Component {
 
     // 组件挂载完
     componentDidMount() {
-      // 加载列表
-      const {refreshProducts,loadProductsIfNeeded} = this.props;
-      refreshProducts();
-      loadProductsIfNeeded();
+      // 重载列表
+      this.onRefresh.bind(this);
     }
 
     // 组件挂载完，页面store变化时调用,如选择分类
@@ -39,6 +44,16 @@ class TestView extends Component {
     //         this.props.loadProductsIfNeeded();
     //     }
     // }
+    
+    // 点击列表项
+    handlePressCell(row){
+      const nextRoute = {
+        component: TestDetail,
+        title: row.name,
+        passProps: { row : row }
+      };
+      this.props.navigator.push(nextRoute);
+    }
 
     // 渲染列表项
     renderRow(row){
@@ -48,15 +63,6 @@ class TestView extends Component {
           handlePressCell={this.handlePressCell.bind(this,row)}
         />
       );
-    }
-
-    handlePressCell(row){
-      const nextRoute = {
-        component: TestDetail,
-        title: row.name,
-        passProps: { row : row }
-      };
-      this.props.navigator.push(nextRoute);
     }
 
     // 刷新列表事件
@@ -72,6 +78,25 @@ class TestView extends Component {
       loadProductsIfNeeded();
     }
 
+    _renderNavBar(){
+      let rightButtonConfig = {
+          title: '搜索',
+          handler: ()=>{
+              this.props.navigator.push({
+                name:'搜索',
+                component:'搜索',
+              });
+          }
+      };
+      return(
+        <NavBar
+          style={commonStyles.navbar}
+          title={{title:"发现"}}
+          rightButton={rightButtonConfig}
+        />
+      );
+    }
+
     // 渲染页面
     render() {
         let content = <TestList
@@ -83,17 +108,14 @@ class TestView extends Component {
           isLoading={this.props.isLoading}
           hasMore={this.props.hasMore}
         />;
-        return (<View style={CommonStyles.tabbarContainer}>{content}</View>);
+        return (
+          <View style={commonStyles.tabbarContainer}>
+            {this._renderNavBar()}
+            {content}
+          </View>
+        );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-    },
-    scrollSpinner: {
-      marginVertical: 20,
-    },
-});
 
 function select(store) {
     const {products} = store;

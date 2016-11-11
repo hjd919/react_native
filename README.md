@@ -43,10 +43,13 @@
 * ios的tab页
     - 更新了组件名称，只需要引入一个TabBarIOS
     - 修改为react-native-elements的tab使其跨平台
+    
 * 导航条
     - react-native-tabbar-navigator [参考Weekly75](https://github.com/fakefish/Weekly75/blob/master/app/common/WeeklyApp.js)
-    - NavigatorIOS [参考shopping-react-native](https://github.com/bigsui/shopping-react-native)；当前使用此导航条
+    - NavigatorIOS [参考shopping-react-native](https://github.com/bigsui/shopping-react-native)；
     - 自定义导航条 [参考GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/tree/master/js/page)
+    - elements + navbar 当前使用此导航条
+
 * common增加全局静态资源目录，含有styles,img;局部资源在各自页面目录下
 * 应用配置目录，含有各个配置json文件，例如菜单，应用基本信息，增加colors,fonts配置文件
 * helpers目录，含有基础帮助，例如获取api资源，获取图片

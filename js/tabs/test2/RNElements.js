@@ -23,7 +23,7 @@ import {
   SearchBar,
 } from 'react-native-elements'
 import Swiper from 'react-native-swiper';
-import CommonStyles from '../../common/styles/CommonStyles';
+import commonStyles from '../../styles/commonStyles';
 
 export default class RNElements extends Component{
   componentDidMount() {
@@ -42,7 +42,7 @@ export default class RNElements extends Component{
 		  },
 		]
 		return (
-            <View style={CommonStyles.tabbarContainer}>{/*
+            <View style={commonStyles.tabbarContainer}>{/*
               <Swiper style={styles.wrapper} showsButtons={true}>
                 <View style={styles.slide1}>
                   <Text style={styles.text}>Hello Swiper</Text>

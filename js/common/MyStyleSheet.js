@@ -1,3 +1,4 @@
+'use strict';
 import {StyleSheet, Platform} from 'react-native';
 
 export function create(styles) {

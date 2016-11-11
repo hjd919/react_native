@@ -11,7 +11,6 @@ var styles = StyleSheet.create({
     },
     tabbarContainer:{
         flex: 1,
-        marginBottom:50
     },
     bgColor: {
         backgroundColor: '#F5FCFF'

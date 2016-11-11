@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  NavigatorIOS,
-  TabBarIOS,
-  View,
-  Text,
-  Platform,
+  // NavigatorIOS,
+  // TabBarIOS,
+  // View,
+  // Text,
+  // Platform,
+  Navigator,
 } from 'react-native';
+
+// common
 import colors from '../configs/colors.json';
-import fonts from '../configs/fonts.json';
-// redux的connect,actions
+
+// redux
 import {connect} from 'react-redux';
 import {
 	switchTab
 } from '../actions';
+
 // tab页面
 import TestView from './test/TestView';
 import Test2View from './test2/Test2View';
 import MineView from './mine/MineView';
 import LoginView from '../login/LoginView';
-// 组件
+
+// 第三方组件
 import { Tabs, Tab, Icon } from 'react-native-elements'
+import NavigatorBar from 'react-native-navbar'
 
 class TabsView extends Component {
 	// 选择菜单
@@ -29,82 +35,40 @@ class TabsView extends Component {
       	  	this.props.onTabSelect(tab);
       	}
     }
-	_addNavigator(component,title) {
-		if(title == '我'){
-			// 判断登录
-			const{isLoggedIn} = this.props;
-			if(!isLoggedIn){
-				component = LoginView;
-			}
-		}
-
-		if(title == 'test2标题'){
-			return (<component/>);
-		}
-	    return (
-	    	<NavigatorIOS
-	        style={styles.container}
-	        titleTextColor="#333"
-	        tintColor="#dadada"
-	        translucent={false}
-	        initialRoute={{
-	            component: component,
-	            title: title,
-	     	}} />
-	    );
+	_renderTab(Component, selectedTab, title, iconName){
+		return (
+			<Tab
+			    title={title}
+	            titleStyle={styles.titleStyle}
+	            selectedTitleStyle={styles.titleStyleSelected}	
+			    renderIcon={() => <Icon color={colors.black3} name={iconName} />}
+			    renderSelectedIcon={() => <Icon color={colors.black1} name={iconName} />}
+			    selected={this.props.tab === selectedTab}
+			    onPress={this.onTabSelect.bind(this,selectedTab)}>
+				<Component 
+            		navigator={this.props.navigator}
+            		{...this.props}
+				/>
+			</Tab>
+		);
 	}
 	render(){
 		return (
 			<Tabs>
-			  <Tab
-			    title='发现'
-	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
-			    selected={this.props.tab === 'test'}
-	            icon={styles.titleSelected}		
-			    renderIcon={() => <Icon color={colors.grey1} name='explore' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='explore' size={26} />}
-			    onPress={this.onTabSelect.bind(this,'test')}>
-				{this._addNavigator(TestView,'test标题')}
-			  </Tab>
-			  <Tab
-			    title='消息'
-	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
-			    selected={this.props.tab === 'test2'}
-	            icon={styles.titleSelected}
-			    renderIcon={() => <Icon color={colors.grey1} name='message' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='message' size={26} />}
-			    onPress={this.onTabSelect.bind(this,'test2')}>
-				<Test2View/>
-			  </Tab>
-			  <Tab
-			    title='我的'
-	            titleStyle={[styles.titleStyle]}
-	            selectedTitleStyle={[styles.titleSelected]}	
-			    selected={this.props.tab === 'mine'}
-	            icon={styles.titleSelected}
-			    renderIcon={() => <Icon color={colors.grey1} name='account-circle' size={26} />}
-			    renderSelectedIcon={() => <Icon color={colors.primary} name='account-circle' size={26} />}
-			    onPress={this.onTabSelect.bind(this,'mine')}>
-				{this._addNavigator(MineView,'mine标题')}
-			  </Tab>
+              {this._renderTab(TestView, 'test', '发现', 'explore')}
+              {this._renderTab(Test2View, 'test2', '消息', 'message')}
+              {this._renderTab(MineView, 'mine', '我的', 'account-circle')}
 			</Tabs>
 		);
 	}
 }
-
-// styles
-const styles = StyleSheet.create({
-	container:{
-		flex:1,
+var styles = StyleSheet.create({
+	titleStyle : {
+		color:colors.black3,
 	},
-    titleStyle: {
-       color: '#666',
-    },
-    titleSelected:{
-    	color:'#333',
-    }
+	titleStyleSelected : {
+		color:colors.black1,
+	},
 });
 
 // redux

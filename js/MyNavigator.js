@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import {
   Navigator,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
-// 导航条
+// tab页
 import TabsView from './tabs/TabsView';
-// 页面
-import ReduxTest from './view/ReduxTest';
 
 export default class react_native extends Component {
   // 变化动画
@@ -20,24 +15,23 @@ export default class react_native extends Component {
   }
   // 导航场景
   renderScene(route, navigator){
-    return <TabsView navigator={navigator} />;
+    let Component = route.component;
+    return (
+        <Component {...route.params} navigator={navigator}/>
+    );
+    // return <TabsView navigator={navigator} />;
   }
   render() {
     return (
       <Navigator
         ref="navigator"
-        initialRoute={{}}
-        configureScene={this.configureScene.bind(this)}
-        renderScene={this.renderScene.bind(this)}
-        style={styles.container}
-        initialRoute={{}}
+        initialRoute={{
+              name: 'TabsView',
+              component:TabsView
+        }}
+        configureScene={(route)=>this.configureScene(route)}
+        renderScene={(route,navigator)=>this.renderScene(route,navigator)}
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
