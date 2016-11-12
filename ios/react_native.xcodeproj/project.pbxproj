@@ -30,6 +30,7 @@
 		7ED326D47C814AF49DF8665C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18B40E0637840179C35E36D /* Octicons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		860DA35858B84A159F0425C8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 400FC73DE19543E19C43F2B5 /* EvilIcons.ttf */; };
+		863A7D2A28A241A282E6F8D3 /* libRCTUmengPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DCA5E7B54441FCBD339C10 /* libRCTUmengPush.a */; };
 		8B106B8822584912B6654F97 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E4DA70F6614962800B5B78 /* libz.tbd */; };
 		9DA1E11161B44E40BF08A56B /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BB64A0692FB4926A73825C6 /* MaterialIcons.ttf */; };
 		C327BBCCA6F44079A09437C2 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF313A5D64F453EB07591D2 /* libRNVectorIcons.a */; };
@@ -107,6 +108,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
+		};
+		7F0A497D1DD7645100BDCBEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BE7AC84CF124DFABD8B083B /* RCTUmengPush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEA4D7081CCBD77B002E8008;
+			remoteInfo = RCTUmengPush;
 		};
 		7F41AFF01DCF9F3E00D2D4E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -206,14 +214,17 @@
 		4A556D12FCBB420486CAB436 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		6930D111B8904501BB4C7AD3 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		6AB09609F95D4BB2B0D1B8E9 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		6BE7AC84CF124DFABD8B083B /* RCTUmengPush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTUmengPush.xcodeproj; path = "../node_modules/react-native-umeng-push/ios/RCTUmengPush.xcodeproj"; sourceTree = "<group>"; };
 		77CF8D0A9C504B7A966412ED /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7FC531251DD755D500104249 /* react_native.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = react_native.entitlements; path = react_native/react_native.entitlements; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9BB64A0692FB4926A73825C6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		9E6AA6461FFD453D93C46F37 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		C734444049BC4717845F7DC7 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		D05FE2869D9C487AA9BC2948 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D3E4DA70F6614962800B5B78 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D8DCA5E7B54441FCBD339C10 /* libRCTUmengPush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTUmengPush.a; sourceTree = "<group>"; };
 		E09F321F755344D19190F37B /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		F18B40E0637840179C35E36D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +255,7 @@
 				11152123B2874A65AA30E556 /* libCodePush.a in Frameworks */,
 				8B106B8822584912B6654F97 /* libz.tbd in Frameworks */,
 				C327BBCCA6F44079A09437C2 /* libRNVectorIcons.a in Frameworks */,
+				863A7D2A28A241A282E6F8D3 /* libRCTUmengPush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +342,7 @@
 		13B07FAE1A68108700A75B9A /* react_native */ = {
 			isa = PBXGroup;
 			children = (
+				7FC531251DD755D500104249 /* react_native.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -383,6 +396,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7F0A496D1DD7644F00BDCBEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F0A497E1DD7645100BDCBEA /* libRCTUmengPush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7F41AFDB1DCF9F3E00D2D4E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +435,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				C734444049BC4717845F7DC7 /* CodePush.xcodeproj */,
 				E09F321F755344D19190F37B /* RNVectorIcons.xcodeproj */,
+				6BE7AC84CF124DFABD8B083B /* RCTUmengPush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -501,10 +523,17 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 63XV27M592;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 63XV27M592;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -551,6 +580,10 @@
 				{
 					ProductGroup = 832341B11AAA6A8300B99B32 /* Products */;
 					ProjectRef = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
+				},
+				{
+					ProductGroup = 7F0A496D1DD7644F00BDCBEA /* Products */;
+					ProjectRef = 6BE7AC84CF124DFABD8B083B /* RCTUmengPush.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
@@ -639,6 +672,13 @@
 			fileType = archive.ar;
 			path = libRCTLinking.a;
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7F0A497E1DD7645100BDCBEA /* libRCTUmengPush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTUmengPush.a;
+			remoteRef = 7F0A497D1DD7645100BDCBEA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7F41AFF11DCF9F3E00D2D4E0 /* libRNVectorIcons.a */ = {
@@ -803,16 +843,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 63XV27M592;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = react_nativeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -824,13 +867,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 63XV27M592;
 				INFOPLIST_FILE = react_nativeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -842,7 +888,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = react_native/react_native.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -853,16 +900,17 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-umeng-push/ios/**",
 				);
 				INFOPLIST_FILE = react_native/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hjd.reactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjd919.reactnative;
 				PRODUCT_NAME = react_native;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -872,7 +920,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = react_native/react_native.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63XV27M592;
 				HEADER_SEARCH_PATHS = (
@@ -881,16 +931,17 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-umeng-push/ios/**",
 				);
 				INFOPLIST_FILE = react_native/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hjd.reactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjd919.reactnative;
 				PRODUCT_NAME = react_native;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -913,8 +964,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 63XV27M592;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -938,11 +989,13 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-umeng-push/ios/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -963,8 +1016,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 63XV27M592;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -982,8 +1035,9 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-umeng-push/ios/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

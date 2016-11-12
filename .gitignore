@@ -42,3 +42,5 @@ android/keystores/debug.keystore
 
 .deco
 configure.deco.js
+
+data/

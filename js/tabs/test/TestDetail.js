@@ -12,41 +12,41 @@ import {
 import {getImage} from '../../helpers/getImage';
 // 组件,只支持text和链接
 import HTML from "react-native-htmlview";
-// 定义常量
-const WEBVIEW_REF = 'webview_ref';
+import MyNavBar from '../../common/MyNavBar';
+
 export default class TestDetail extends Component{
 	// 打开浏览器
 	handlePress(url){
 		Linking.openURL(url);
 	}
 
+    _renderNavBar(){
+      let leftButtonConfig = {
+          title: '返回',
+          handler: ()=>{
+              this.props.navigator.pop();
+          }
+      };
+      return(
+        <MyNavBar
+          title={{title:"详情"}}
+          leftButtonConfig={leftButtonConfig}
+        />
+      );
+    }
+
 	render(){
 		const {row} = this.props;
 		const logo_url = getImage(row.logo);
 		const qrcode_url = getImage(row.qrcode);
 		const webview = <WebView
-						ref={WEBVIEW_REF}
+						ref={(ref) => {this.webviewRef = ref}}
 						startInLoadingState={true}
 						source={{uri:row.content_url}}
 						/>
 		return (
 			<View style={{flex:1}}>
-				{/*<Image source={{uri:logo_url}} style={styles.logo} />
-				<Image source={{uri:qrcode_url}} style={styles.logo} />
-				<Text>{row.name}</Text>
-				<Text>{row.sub_name}</Text>
-				<TouchableHighlight
-				  accessibilityTraits="button"
-				  underlayColor="#3C5EAE"
-				  onPress={this.handlePress.bind(this,row.content_url)}
-				>
-					<View>
-						<Text>跳转</Text>
-					</View>
-				</TouchableHighlight>
-	            <Text>
-	              <HTML value={row.content} stylesheet={styles}/>
-	            </Text>*/}
+            	{this._renderNavBar()}
 	            {webview}
 			</View>			
 		);

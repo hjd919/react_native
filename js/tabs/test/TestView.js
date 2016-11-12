@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
+  Text,
 } from 'react-native';
 
 // common
@@ -16,10 +17,12 @@ import {
 // component
 import TestList from './TestList';
 import TestCell from './TestCell';
+
 import NavBar from 'react-native-navbar';
 
 // page
 import TestDetail from './TestDetail';
+import SearchView from '../../common/SearchView';
 
 // 第三方插件
 import { Icon } from 'react-native-elements'
@@ -35,22 +38,15 @@ class TestView extends Component {
     // 组件挂载完
     componentDidMount() {
       // 重载列表
-      this.onRefresh.bind(this);
+      this.onRefresh();
     }
-
-    // 组件挂载完，页面store变化时调用,如选择分类
-    // componentWillReceiveProps(nextProps){
-    //     if(this.props.products !== nextProps.products){
-    //         this.props.loadProductsIfNeeded();
-    //     }
-    // }
     
     // 点击列表项
     handlePressCell(row){
       const nextRoute = {
         component: TestDetail,
-        title: row.name,
-        passProps: { row : row }
+        name: row.name,
+        params: { row : row }
       };
       this.props.navigator.push(nextRoute);
     }
@@ -84,7 +80,7 @@ class TestView extends Component {
           handler: ()=>{
               this.props.navigator.push({
                 name:'搜索',
-                component:'搜索',
+                component:SearchView,
               });
           }
       };

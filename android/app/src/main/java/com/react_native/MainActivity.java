@@ -1,6 +1,7 @@
 package com.react_native;
 
 import com.facebook.react.ReactActivity;
+import com.liuchungui.react_native_umeng_push.UmengPushPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainActivity extends ReactActivity {

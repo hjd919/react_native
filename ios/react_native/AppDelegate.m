@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "CodePush.h"
+#import "RCTUmengPush.h"
 
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
@@ -18,7 +19,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
   
 #ifdef DEBUG
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
@@ -37,7 +37,23 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  //注册友盟推送
+  [RCTUmengPush registerWithAppkey:@"58272aebc62dca5ed70026e4" launchOptions:launchOptions];
+
   return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+  //获取deviceToken
+  [RCTUmengPush application:application didRegisterDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+  //获取远程推送消息
+  [RCTUmengPush application:application didReceiveRemoteNotification:userInfo];
 }
 
 @end

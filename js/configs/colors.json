@@ -1,8 +1,9 @@
 {
-  "primary": "#333",
-  "black1": "#333",
-  "black2": "#666",
-  "black3": "#999",
+  "primary": "#63C2F7",
+  "black":"#000",
+  "black1": "#404040",
+  "black2": "#808080",
+  "black3": "#BABABA",
   "secondary": "#8F0CE8",
   "secondary2": "#00B233",
   "secondary3": "#00FF48",

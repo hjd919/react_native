@@ -9,7 +9,8 @@ import {
 import MyNavigator from './MyNavigator';
 // 热更新
 import CodePush from "react-native-code-push";
-// import TestView from './tabs/test/TestView';
+// 友盟推送
+import UmengPush from 'react-native-umeng-push';
 
 class react_native extends Component {
   componentDidMount() {
@@ -19,6 +20,23 @@ class react_native extends Component {
     // this.props.dispatch(loadSessions());
   
     CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+
+      
+    //获取DeviceToken
+    UmengPush.getDeviceToken(deviceToken => {
+        console.log("deviceToken: ", deviceToken);
+    });
+
+    //接收到推送消息回调
+    UmengPush.didReceiveMessage(message => {
+        console.log("didReceiveMessage:", message);
+    });
+
+    //点击推送消息打开应用回调
+    UmengPush.didOpenMessage(message => {
+        console.log("didOpenMessage:", message);
+    });
+
   }
   handleAppStateChange(appState) {
     if (appState === 'active') {
