@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import {
+  ActivityIndicator,
   StyleSheet,
-  Text,
   View,
-  TouchableHighlight,
-  Image
 } from 'react-native';
+
 // common
 import commonStyles from '../../styles/commonStyles';
 import colors from '../../configs/colors.json';
 import MyTouchable from '../../common/MyTouchable';
+
 // redux
 import { connect } from 'react-redux';
 import {
@@ -18,7 +18,7 @@ import {
 import NavBar from 'react-native-navbar';
 import { List, ListItem, Icon } from 'react-native-elements'
 
-class MineView extends Component {
+export default class MyContainer extends Component {
     // 渲染导航条
     _renderNavBar(){
       return(
@@ -91,16 +91,5 @@ const styles = StyleSheet.create({
     fontSize:18,
   }
 });
-
-function select(store){
-  return {
-  };
-}
-
-function actions(dispatch){
-  return {
-    loadConfig:()=>dispatch(loadConfig())
-  };
-}
 
 export default connect(select,actions)(MineView);

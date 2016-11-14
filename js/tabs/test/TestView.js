@@ -18,14 +18,12 @@ import {
 import TestList from './TestList';
 import TestCell from './TestCell';
 
-import NavBar from 'react-native-navbar';
-
 // page
 import TestDetail from './TestDetail';
 import SearchView from '../../common/SearchView';
 
 // 第三方插件
-import { Icon } from 'react-native-elements'
+import NavBar from 'react-native-navbar';
 
 class TestView extends Component {
     constructor(props) {
@@ -40,7 +38,7 @@ class TestView extends Component {
       // 重载列表
       this.onRefresh();
     }
-    
+
     // 点击列表项
     handlePressCell(row){
       const nextRoute = {
@@ -74,6 +72,7 @@ class TestView extends Component {
       loadProductsIfNeeded();
     }
 
+    // 渲染导航条
     _renderNavBar(){
       let rightButtonConfig = {
           title: '搜索',

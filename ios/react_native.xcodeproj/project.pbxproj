@@ -867,7 +867,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: longhu zhen (63XV27M592)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 63XV27M592;
@@ -921,7 +921,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = react_native/react_native.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: longhu zhen (63XV27M592)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63XV27M592;
@@ -1016,7 +1016,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: longhu zhen (X3F23SHVRS)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: longhu zhen (63XV27M592)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 63XV27M592;

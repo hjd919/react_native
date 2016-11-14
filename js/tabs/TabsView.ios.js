@@ -11,6 +11,7 @@ import {
 
 // common
 import colors from '../configs/colors.json';
+import MyContainer from '../common/MyContainer';
 
 // redux
 import {connect} from 'react-redux';

@@ -98,7 +98,7 @@ ps 用react-native-elements样式库组件替换
     * 导航条不显示：组件如果被View包括，包括起来需加flex:1样式
 
 ## TODO
-    * 用户注册（邮箱，第三方，设备idfa）登录
     * “我的”界面 react-native-parallax-view
+    * 用户注册（邮箱，第三方，设备idfa）登录
     * [微信分享](http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%A5%BD%E5%8F%8B%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD-androidios%E5%8F%8C%E5%B9%B3%E5%8F%B0/)
     * MyNavBar优化为容器+子组件

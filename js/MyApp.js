@@ -18,28 +18,28 @@ class react_native extends Component {
 
     // this.props.dispatch(loadConfig());
     // this.props.dispatch(loadSessions());
-  
-    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+    if(!__DEV__){
+      CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
 
-      
-    //获取DeviceToken
-    UmengPush.getDeviceToken(deviceToken => {
-        console.log("deviceToken: ", deviceToken);
-    });
+      //获取DeviceToken
+      UmengPush.getDeviceToken(deviceToken => {
+          console.log("deviceToken: ", deviceToken);
+      });
 
-    //接收到推送消息回调
-    UmengPush.didReceiveMessage(message => {
-        console.log("didReceiveMessage:", message);
-    });
+      //接收到推送消息回调
+      UmengPush.didReceiveMessage(message => {
+          console.log("didReceiveMessage:", message);
+      });
 
-    //点击推送消息打开应用回调
-    UmengPush.didOpenMessage(message => {
-        console.log("didOpenMessage:", message);
-    });
+      //点击推送消息打开应用回调
+      UmengPush.didOpenMessage(message => {
+          console.log("didOpenMessage:", message);
+      });      
+    }
 
   }
   handleAppStateChange(appState) {
-    if (appState === 'active') {
+    if (appState === 'active' && !__DEV__) {
       CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
     }
   }

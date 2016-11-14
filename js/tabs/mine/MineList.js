@@ -7,12 +7,9 @@ import {
 	View,
 } from 'react-native';
 // 平台组件
+import MyTouchable from '../../common/MyTouchable';
 import {Text} from '../../common/MyText';
 import Loading from '../../common/Loading';
-// actions
-import {
-	fetchProductsIfNeeded,
-} from '../../actions';
 
 export default class TestList extends Component {
 	constructor(props) {
@@ -48,7 +45,10 @@ export default class TestList extends Component {
                 </View>
             );
         }
-
+        // if (data.length==0){
+        //     // TODO 优化正在加载进度条组件
+        //     return <Loading isLoading={isLoading}/>;
+        // }
 		//{/* 使用数据源来实例化,接受数据源数组中的每个数据*/}
 		let content = <ListView
 						ref="listView"
