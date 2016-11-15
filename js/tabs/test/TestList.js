@@ -71,11 +71,7 @@ export default class TestList extends Component {
 			              />
 			            }
          			/>;
-		return (
-			<View style={styles.container}>
-				{content}
-			</View>
-		);
+		return content;
 	}
     _renderFooter(){
       const {isLoading,hasMore} = this.props;

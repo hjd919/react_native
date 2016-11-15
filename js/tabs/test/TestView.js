@@ -6,6 +6,7 @@ import {
 
 // common
 import commonStyles from '../../styles/commonStyles';
+import MyContainer from '../../common/MyContainer';
 
 // redux
 import { connect } from 'react-redux';
@@ -23,7 +24,6 @@ import TestDetail from './TestDetail';
 import SearchView from '../../common/SearchView';
 
 // 第三方插件
-import NavBar from 'react-native-navbar';
 
 class TestView extends Component {
     constructor(props) {
@@ -83,26 +83,28 @@ class TestView extends Component {
               });
           }
       };
-      return(
-        <NavBar
-          style={commonStyles.navbar}
-          title={{title:"发现"}}
-          rightButton={rightButtonConfig}
-        />
-      );
+      return rightButtonConfig;
     }
 
     // 渲染页面
     render() {
-        let content = <TestList
-          data={this.props.products}
-          renderRow={this.renderRow.bind(this)}
-          onRefresh={this.onRefresh.bind(this)}
-          onEndReached={this.onEndReached.bind(this)}
-          isLoadingFail={this.props.isLoadingFail}
-          isLoading={this.props.isLoading}
-          hasMore={this.props.hasMore}
-        />;
+        let content = (
+        <MyContainer
+          title="发现"
+          rightButtonConfig={this._renderNavBar()}
+        >
+          <TestList
+            data={this.props.products}
+            renderRow={this.renderRow.bind(this)}
+            onRefresh={this.onRefresh.bind(this)}
+            onEndReached={this.onEndReached.bind(this)}
+            isLoadingFail={this.props.isLoadingFail}
+            isLoading={this.props.isLoading}
+            hasMore={this.props.hasMore}
+          />
+        </MyContainer>
+        );
+        return content;
         return (
           <View style={commonStyles.tabbarContainer}>
             {this._renderNavBar()}
