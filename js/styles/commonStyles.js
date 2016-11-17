@@ -36,8 +36,8 @@ var styles = StyleSheet.create({
     },
     navbar: {
         flexDirection: 'row',
-        borderBottomColor: '#ADB0B6',
-        borderBottomWidth: 1/PixelRatio.get(),
+        borderBottomColor: '#ddd',
+        borderBottomWidth: 0.1,
     },
     justAlign: {
         alignItems: 'center', 

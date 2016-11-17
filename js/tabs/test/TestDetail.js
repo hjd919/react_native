@@ -4,11 +4,12 @@ import {
 	Image,
 	View,
 	Text,
-	TouchableHighlight,
 	Linking,
 	WebView,
 } from 'react-native';
-// 助手-获取图片
+// common
+import MyContainer from '../../common/MyContainer';
+// 助手
 import {getImage} from '../../helpers/getImage';
 // 组件,只支持text和链接
 import HTML from "react-native-htmlview";
@@ -20,23 +21,18 @@ export default class TestDetail extends Component{
 		Linking.openURL(url);
 	}
 
-    _renderNavBar(){
+    _getNavBarConfig(){
       let leftButtonConfig = {
           title: '返回',
           handler: ()=>{
               this.props.navigator.pop();
           }
       };
-      return(
-        <MyNavBar
-          title={{title:"详情"}}
-          leftButtonConfig={leftButtonConfig}
-        />
-      );
+      return leftButtonConfig;
     }
 
 	render(){
-		const {row} = this.props;
+		const {row,name} = this.props;
 		const logo_url = getImage(row.logo);
 		const qrcode_url = getImage(row.qrcode);
 		const webview = <WebView
@@ -45,10 +41,12 @@ export default class TestDetail extends Component{
 						source={{uri:row.content_url}}
 						/>
 		return (
-			<View style={{flex:1}}>
-            	{this._renderNavBar()}
-	            {webview}
-			</View>			
+	        <MyContainer
+	          title='{name}'
+	          leftButtonConfig={this._getNavBarConfig()}
+	        >
+	         {webview}
+       		 </MyContainer>
 		);
 	}
 }

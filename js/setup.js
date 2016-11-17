@@ -1,7 +1,15 @@
 'use strict';
 
 import React, { Component } from 'react';
-import MyApp from './MyApp';//应用
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  Image
+} from 'react-native';
+//应用
+import MyApp from './MyApp';
 
 // 注入 Redux Store
 import {Provider} from 'react-redux';
@@ -35,7 +43,6 @@ export default function setup(){
 
 	return react_native;
 }
-
 global.LOG = (...args) => {
   console.log('/------------------------------\\');
   console.log(...args);

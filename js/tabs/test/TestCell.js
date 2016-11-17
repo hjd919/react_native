@@ -25,7 +25,6 @@ export default class TestCell extends Component{
 	          </View>
 	        </View>
 	      </TouchableHighlight>
-
 		);
 	}
 } 

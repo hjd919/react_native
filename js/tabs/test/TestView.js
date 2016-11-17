@@ -17,7 +17,6 @@ import {
 
 // component
 import TestList from './TestList';
-import TestCell from './TestCell';
 
 // page
 import TestDetail from './TestDetail';
@@ -49,16 +48,6 @@ class TestView extends Component {
       this.props.navigator.push(nextRoute);
     }
 
-    // 渲染列表项
-    renderRow(row){
-      return (
-        <TestCell
-          row={row}
-          handlePressCell={this.handlePressCell.bind(this,row)}
-        />
-      );
-    }
-
     // 刷新列表事件
     onRefresh(){
         const {refreshProducts,loadProductsIfNeeded} = this.props;
@@ -72,7 +61,7 @@ class TestView extends Component {
       loadProductsIfNeeded();
     }
 
-    // 渲染导航条
+    // 导航条按钮配置
     _renderNavBar(){
       let rightButtonConfig = {
           title: '搜索',
@@ -95,22 +84,16 @@ class TestView extends Component {
         >
           <TestList
             data={this.props.products}
-            renderRow={this.renderRow.bind(this)}
             onRefresh={this.onRefresh.bind(this)}
             onEndReached={this.onEndReached.bind(this)}
             isLoadingFail={this.props.isLoadingFail}
             isLoading={this.props.isLoading}
             hasMore={this.props.hasMore}
+            handlePressCell={this.handlePressCell.bind(this)}
           />
         </MyContainer>
         );
         return content;
-        return (
-          <View style={commonStyles.tabbarContainer}>
-            {this._renderNavBar()}
-            {content}
-          </View>
-        );
     }
 }
 
@@ -121,7 +104,6 @@ function select(store) {
         isLoading:products.isLoading,
         isLoadingFail:products.isLoadingFail,
         hasMore:products.hasMore,
-        page:products.page,
     };
 }
 

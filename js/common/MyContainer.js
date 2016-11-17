@@ -38,10 +38,10 @@ export default class MyContainer extends Component {
   // 渲染页面
   render() {
         let children = React.Children.map(this.props.children,  (o, i)=>{
-            return React.cloneElement(o, { style: {color:'#f00'} })
+            return React.cloneElement(o,{})
         });
     return (
-        <View>
+        <View style={{backgroundColor:'#E8EDF1'}}>
           {this._renderNavBar()}
           {children}
         </View>

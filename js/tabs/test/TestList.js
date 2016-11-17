@@ -6,13 +6,16 @@ import {
 	Image,
 	View,
 } from 'react-native';
+
 // 平台组件
 import {Text} from '../../common/MyText';
 import Loading from '../../common/Loading';
-// actions
-import {
-	fetchProductsIfNeeded,
-} from '../../actions';
+
+// 助手
+import {getImage} from '../../helpers/getImage';
+
+// 第三方组件
+import { List, ListItem, Icon } from 'react-native-elements'
 
 export default class TestList extends Component {
 	constructor(props) {
@@ -38,8 +41,9 @@ export default class TestList extends Component {
 		}
 	}
 
+    // 渲染组件
 	render() {
-		const {onRefresh,renderRow,isLoadingFail,isLoading,onEndReached,renderFooter,data} = this.props;
+		const {onRefresh,isLoadingFail,isLoading,onEndReached,renderFooter,data} = this.props;
         if (isLoadingFail){
             // TODO 优化加载失败组件
             return (
@@ -48,31 +52,50 @@ export default class TestList extends Component {
                 </View>
             );
         }
-
+        return (
+        	<List containerStyle={{marginTop:0,marginBottom:60}}>
+				<ListView
+					ref="listView"
+					style={{backgroundColor:'#fff'}}
+					dataSource={this.state.dataSource}
+					renderRow={(rowData, sectionID)=>this._renderRow(rowData, sectionID)}
+					onEndReached={onEndReached}
+					onEndReachedThreshold={100}
+					renderFooter={this._renderFooter.bind(this)}
+	        		enableEmptySections={true}
+	        		initialListSize={10}
+	        		pageSize={10}
+		    		refreshControl={
+		              <RefreshControl
+		                refreshing={false}
+		                onRefresh={onRefresh}
+		                title="正在加载中..."
+		                titleColor="#000"
+		                colors={['#ff0000', '#00ff00', '#0000ff']}
+		                progressBackgroundColor="#000"
+		              />
+		            }/>
+        	</List>
+        );
 		//{/* 使用数据源来实例化,接受数据源数组中的每个数据*/}
-		let content = <ListView
-						ref="listView"
-						dataSource={this.state.dataSource}
-						renderRow={renderRow}
-						onEndReached={onEndReached}
-						onEndReachedThreshold={100}
-        				renderFooter={this._renderFooter.bind(this)}
-                		enableEmptySections={true}
-                		initialListSize={10}
-                		pageSize={10}
-			    		refreshControl={
-			              <RefreshControl
-			                refreshing={false}
-			                onRefresh={onRefresh}
-			                title="正在加载中..."
-			                titleColor="#000"
-			                colors={['#ff0000', '#00ff00', '#0000ff']}
-			                progressBackgroundColor="#000"
-			              />
-			            }
-         			/>;
-		return content;
 	}
+
+    // 渲染列表项
+    _renderRow(rowData, sectionID){
+    	const {handlePressCell} = this.props;
+      return (
+        <ListItem
+          roundAvatar
+          key={sectionID}
+          title={rowData.name}
+          subtitle={rowData.sub_name}
+          avatar={{uri:getImage(rowData.logo)}}
+          onPress={(row)=>handlePressCell(row)}
+        />
+      );
+    }
+
+    // 渲染列表底部
     _renderFooter(){
       const {isLoading,hasMore} = this.props;
 
@@ -91,9 +114,6 @@ function cloneWithData(dataSource, data) {
 }
 
 var styles = StyleSheet.create({
-	container:{
-		flex:1,
-	},
 	scrollSpinner: {
 	  marginVertical: 20,
 	},

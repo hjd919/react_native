@@ -7,52 +7,51 @@ import {
   Image
 } from 'react-native';
 // common
-import commonStyles from '../../styles/commonStyles';
 import colors from '../../configs/colors.json';
 import MyTouchable from '../../common/MyTouchable';
+import MyContainer from '../../common/MyContainer';
 // redux
 import { connect } from 'react-redux';
 import {
 } from '../../actions';
 // 第三方插件
-import NavBar from 'react-native-navbar';
 import { List, ListItem, Icon } from 'react-native-elements'
 
 class MineView extends Component {
-    // 渲染导航条
-    _renderNavBar(){
-      return(
-        <NavBar
-          style={commonStyles.navbar}
-          title={{title:"我的"}}
-        />
-      );
-    }
 
   // 渲染页面
   render() {
-    let profile = 
-      <MyTouchable onPress={() => console.log(123)}>
-        <View style={styles.loginButton}>
-          <Icon 
-            name='account-circle' 
-            size={66}
-            color="#ADB0B6" 
-            containerStyle={styles.loginButtonIcon}/>
-          <Text style={styles.loginButtonText}>点击登录账号</Text>
-        </View>
-      </MyTouchable>;
+    let profile = (
+          <MyTouchable onPress={() => console.log(123)}>
+            <View style={styles.loginButton}>
+              <Icon 
+                name='account-circle' 
+                size={66}
+                color="#ADB0B6" 
+                containerStyle={{marginRight:10}}
+                iconStyle={{marginLeft:10}}
+              />
+              <Text style={styles.loginButtonText}>点击登录账号</Text>
+            </View>
+          </MyTouchable>
+    );
 
     let list = [{
         title: '我喜欢的',
         icon: 'av-timer'
       }];
 
-    let content = 
-        <List style={{padding:10}}>
+    let content = (
+        <MyContainer
+          title="我的"
+        >
+        <View style={{width:100,height:20}}></View>
+        {profile}
+        <List containerStyle={{padding:10,borderColor:'#fff',backgroundColor:'#fff'}}>
           {
             list.map((item, i) => (
               <ListItem
+                containerStyle={{borderWidth:0}}
                 key={i}
                 title={item.title}
                 leftIcon={{name: item.icon}}
@@ -60,14 +59,10 @@ class MineView extends Component {
               />
             ))
           }
-        </List>;
-    return (
-        <View >
-          {this._renderNavBar()}
-          {profile}
-          {content}
-        </View>
-    );
+        </List>
+        </MyContainer>
+      );
+    return content;
   }
 }
 
@@ -77,17 +72,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop:10,
     paddingBottom:10,
-    marginTop:20,
-    borderTopColor:'#bdc6cf',
-    borderBottomColor:'#bdc6cf',
-    borderBottomWidth:1,
-    borderTopWidth:1,
+    backgroundColor:'#fff',
   },
   loginButtonIcon:{
-    marginRight:10,
+    // marginRight:10,
   },
   loginButtonText:{
-    color:colors.black3,
+    // color:colors.black3,
+    color:'#666',
     fontSize:18,
   }
 });

@@ -9,7 +9,7 @@ function MyTouchableIOS(props){
   return (
     <TouchableHighlight
       accessibilityTraits="button"
-      underlayColor="#3C5EAE"
+      underlayColor="#ddd"
       {...props}
     />
   );

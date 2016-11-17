@@ -55,7 +55,10 @@ class TabsView extends Component {
 	}
 	render(){
 		return (
-			<Tabs>
+			<Tabs
+			    sceneStyle={{backgroundColor:'#E8EDF1'}}
+			    tabBarStyle={{backgroundColor:'#fff'}}
+			>
               {this._renderTab(TestView, 'test', '发现', 'explore')}
               {this._renderTab(Test2View, 'test2', '消息', 'message')}
               {this._renderTab(MineView, 'mine', '我的', 'account-circle')}
