@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 // common
 import MyContainer from '../../common/MyContainer';
+import MyBox from '../../common/MyBox';
+import commonStyles from '../../styles/commonStyles';
 // 助手
 import {getImage} from '../../helpers/getImage';
 // 组件,只支持text和链接
@@ -32,19 +34,36 @@ export default class TestDetail extends Component{
     }
 
 	render(){
-		const {row,name} = this.props;
+		const {row} = this.props;
 		const logo_url = getImage(row.logo);
 		const qrcode_url = getImage(row.qrcode);
-		const webview = <WebView
-						ref={(ref) => {this.webviewRef = ref}}
-						startInLoadingState={true}
-						source={{uri:row.content_url}}
-						/>
+
+		const logo = (
+	        <MyBox boxTitle="邀请码">
+				<View style={commonStyles.justAlign}>
+					<Image
+						source={{uri:qrcode_url}}
+						style={commonStyles.logo}
+					/>
+				</View>
+			</MyBox>
+		);
+
+		const webview = (
+			<MyBox boxTitle="产品介绍">
+				<WebView
+					ref={(ref) => {this.webviewRef = ref}}
+					startInLoadingState={true}
+					source={{uri:row.content_url}}
+				/>
+			</MyBox>
+			);
 		return (
 	        <MyContainer
-	          title='{name}'
+	          title={row.name}
 	          leftButtonConfig={this._getNavBarConfig()}
 	        >
+	        {logo}
 	         {webview}
        		 </MyContainer>
 		);

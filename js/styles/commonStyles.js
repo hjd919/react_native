@@ -4,10 +4,31 @@ import {
   Dimensions,
 } from 'react-native';
 
+import colors from '../configs/colors.json';
+
 var cell_w = Dimensions.get('window').width;
 var styles = StyleSheet.create({
     wrapper: {
         flex: 1,
+    },
+    box:{
+        justifyContent: 'center',
+        marginBottom:15,
+        padding:10,
+        backgroundColor:'#fff'
+    },  
+    boxHead:{
+       justifyContent: 'space-around', 
+    },
+    boxTitle:{
+        borderLeftWidth:10,
+        borderLeftColor:colors.black1,
+        color:colors.black1,
+        paddingLeft:5,
+    },
+    logo:{
+        width:50,
+        height:50,
     },
     tabbarContainer:{
         flex: 1,
@@ -37,7 +58,7 @@ var styles = StyleSheet.create({
     navbar: {
         flexDirection: 'row',
         borderBottomColor: '#ddd',
-        borderBottomWidth: 0.1,
+        borderBottomWidth: 0.5,
     },
     justAlign: {
         alignItems: 'center', 

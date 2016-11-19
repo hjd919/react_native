@@ -90,7 +90,7 @@ export default class TestList extends Component {
           title={rowData.name}
           subtitle={rowData.sub_name}
           avatar={{uri:getImage(rowData.logo)}}
-          onPress={(row)=>handlePressCell(row)}
+          onPress={handlePressCell.bind(this,rowData)}
         />
       );
     }
